@@ -17,6 +17,7 @@ export const Usercard = () => {
             const response = await fetch(`https://api.github.com/users/${username}`);
             if (response.ok) {
               const data = await response.json();
+              console.log(data)
               setUserData(data);
             } else {
               console.error('User not found');
@@ -48,8 +49,9 @@ export const Usercard = () => {
                     </div>
                     <div className="userCard-descp">
                         <h2>{userData.name}</h2>
+                        <p>@{userData.login}</p>
                         <div className='description'>
-                            <p>@{userData.login}</p>
+                            <p>{userData.bio}</p>
                         </div>
 
                         <div className="repos-btns">
